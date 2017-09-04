@@ -1,0 +1,34 @@
+doctype html
+html.
+head
+    // styles put here, but you can include a CSS file and reference it instead!
+    style(type='text/css').
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 100%; }
+  body
+    // TODO 1: Create a place to put the map in the HTML
+    #map test
+    script.
+      // TODO: Create a map variable
+      // TODO: Complete the following function to initialize the map
+      function initMap() {
+      var myLatLng = {lat: -24.258519, lng: 27.7649139};
+      var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: -24.258519, lng: 27.7649139},
+      zoom: 10
+      });
+      var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      title: 'Hello World!'
+      });
+      var contentString = 'dsdsd';
+      var infowindow = new google.maps.InfoWindow({
+      content: contentString
+      });
+      marker.addListener('click', function() {
+      infowindow.open(map, marker);
+      });
+      }
+    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDoXSJh0MamqNG8rbgMwgX_b-5JBH91V_c&callback=initMap', async='', defer='')
+    script.
